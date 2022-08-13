@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:text="아이디"/>
 
 
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="아이디를 입력하시오"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:imeOptions="actionNext"
         android:inputType="textEmailAddress"
         android:maxLines="1"/>
@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:text="비밀번호"/>
 
 
@@ -47,24 +47,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="비밀번호를 입력하시오"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:maxLines="1"/>
 
-    <Button
-        android:id="@+id/loginBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="로그인"/>
 
-    <Button
-        android:id="@+id/signupBtn"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="회원가입"/>
+        android:orientation="horizontal"
+        android:gravity="center">
+
+
+        <Button
+            android:id="@+id/loginBtn"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="로그인"/>
+
+        <Button
+            android:id="@+id/signupBtn"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:text="회원가입"/>
+
+
+
+    </LinearLayout>
+
+
 
 
 
