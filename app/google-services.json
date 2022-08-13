@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "239995375594",
+    "project_id": "emergency-treatment-5478f",
+    "storage_bucket": "emergency-treatment-5478f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239995375594:android:ee9454cd433287d484ec93",
+        "android_client_info": {
+          "package_name": "com.sangmin.emergencytreatment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "239995375594-363occ0uarc93ifrvnatvqhbajs9vvn9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5KJdEqTZ-3J3YtRDNSYyoxCZwCSRxwGw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "239995375594-363occ0uarc93ifrvnatvqhbajs9vvn9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
