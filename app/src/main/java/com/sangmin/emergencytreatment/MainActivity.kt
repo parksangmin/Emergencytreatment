@@ -5,9 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toolbar
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.viewpager2.widget.ViewPager2
 import com.google.firebase.auth.FirebaseAuth
 import com.sangmin.emergencytreatment.adapters.MainViewPagerAdapter
@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var auth: FirebaseAuth
 
     lateinit var mPagerAdapter : MainViewPagerAdapter
-
 
     lateinit var titleTxt : TextView
     lateinit var backBtn : ImageView
@@ -42,12 +41,7 @@ class MainActivity : AppCompatActivity() {
             setCustomActionBar()
         }
 
-//        뒤로가기 버튼 누르기
-        backBtn.setOnClickListener {
-            val myIntent = Intent(this, LoginActivity::class.java)
-            startActivity(myIntent)
-            finish()
-        }
+
 
 //        바텀 네비게이션 클릭 이벤트 처리
         bottomNav.setOnItemSelectedListener {
@@ -80,6 +74,8 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+//    커스텀 액션바 설정
+
     fun setCustomActionBar() {
         val defActionBar = supportActionBar!!
 
@@ -92,6 +88,14 @@ class MainActivity : AppCompatActivity() {
 
         titleTxt = defActionBar.customView.findViewById(R.id.titleTxt)
         backBtn = defActionBar.customView.findViewById(R.id.backBtn)
+
+
+        //        뒤로가기 버튼 누르기
+        backBtn.setOnClickListener {
+            val myIntent = Intent(this, LoginActivity::class.java)
+            startActivity(myIntent)
+            finish()
+        }
 
     }
 
