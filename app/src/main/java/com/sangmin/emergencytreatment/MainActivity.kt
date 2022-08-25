@@ -1,13 +1,16 @@
 package com.sangmin.emergencytreatment
 
-import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.sangmin.emergencytreatment.adapters.MainViewPagerAdapter
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var auth: FirebaseAuth
+
+    lateinit var mPagerAdapter : MainViewPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,6 +18,12 @@ class MainActivity : AppCompatActivity() {
 
 
         auth = FirebaseAuth.getInstance()
+
+        mPagerAdapter = MainViewPagerAdapter(this)
+
+
+
+
 
 
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/bottom_nav_search"
+        android:title="검색"/>
+    <item
+        android:id="@+id/board"
+        android:icon="@drawable/bottom_nav_board"
+        android:title="게시판"/>
+    <item
+        android:id="@+id/map"
+        android:icon="@drawable/bottom_nav_map"
+        android:title="지도"/>
+
+    <item
+        android:id="@+id/setting"
+        android:icon="@drawable/bottom_nav_setting"
+        android:title="세팅"/>
+
+
+
+</menu>

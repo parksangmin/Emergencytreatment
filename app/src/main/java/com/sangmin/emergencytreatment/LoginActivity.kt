@@ -7,25 +7,40 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
+import com.google.android.gms.auth.api.identity.BeginSignInRequest
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
 
-abstract class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
+
+
 
 
     val TAG = "LoginActivity"
 
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+
+
+
+
 
         getKeyHash()
 
@@ -34,12 +49,10 @@ abstract class LoginActivity : AppCompatActivity() {
         val passwordEdt = findViewById<EditText>(R.id.passwordEdt)
         val signUpBtn = findViewById<Button>(R.id.signupBtn)
         val loginBtn = findViewById<Button>(R.id.loginBtn)
-        val kakaoLoginBtn = findViewById<Button>(R.id.kakaoLoginBtn)
+        val kakaoLoginImg = findViewById<ImageView>(R.id.kakaoImg)
 
         val email = emailEdt.text.toString()
         val password = passwordEdt.text.toString()
-
-
 
 
         //      로그인 페이지로 이동
@@ -54,21 +67,20 @@ abstract class LoginActivity : AppCompatActivity() {
             startActivity(myIntent)
             finish()
         }
-
-        kakaoLoginBtn.setOnClickListener {
+        // 카카오톡 로그인
+        kakaoLoginImg.setOnClickListener {
             kakaoLogin()
         }
 
 
-
-
     }
 
-    fun getKeyHash(){
+    fun getKeyHash() {
         val keyHash = Utility.getKeyHash(this)
 
         Log.d("kakao_keyHash", keyHash)
     }
+
 
     fun kakaoLogin() {
         // 카카오계정으로 로그인 공통 callback 구성
@@ -78,6 +90,7 @@ abstract class LoginActivity : AppCompatActivity() {
                 Log.e(TAG, "카카오계정으로 로그인 실패", error)
             } else if (token != null) {
                 Log.i(TAG, "카카오계정으로 로그인 성공 ${token.accessToken}")
+                getKakaoUserInfo()
             }
         }
 
@@ -97,12 +110,37 @@ abstract class LoginActivity : AppCompatActivity() {
                     UserApiClient.instance.loginWithKakaoAccount(this, callback = callback)
                 } else if (token != null) {
                     Log.i(TAG, "카카오톡으로 로그인 성공 ${token.accessToken}")
+                    getKakaoUserInfo()
+
+
                 }
             }
         } else {
             UserApiClient.instance.loginWithKakaoAccount(this, callback = callback)
+
         }
 
+
+    }
+
+
+    fun getKakaoUserInfo() {
+        // 사용자 정보 요청 (기본)
+        UserApiClient.instance.me { user, error ->
+            if (error != null) {
+                Log.e(TAG, "사용자 정보 요청 실패", error)
+            } else if (user != null) {
+                Log.i(
+                    TAG, "사용자 정보 요청 성공" +
+                            "\n회원번호: ${user.id}" +
+                            "\n닉네임: ${user.kakaoAccount?.profile?.nickname}"
+                )
+
+                val myIntent = Intent(this, SplashActivity::class.java)
+                startActivity(myIntent)
+                finish()
+            }
+        }
 
     }
 

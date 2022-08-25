@@ -80,15 +80,35 @@
 
 
 
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="126dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="5dp">
+
+        <ImageView
+            android:id="@+id/kakaoImg"
+            android:layout_width="110dp"
+            android:layout_height="70dp"
+            android:src="@drawable/kakao_login_icon"/>
+
+
+        <ImageView
+            android:id="@+id/GoogleImg"
+            android:layout_width="110dp"
+            android:layout_height="70dp"
+            android:src="@drawable/google_tile_logo_icon"/>
+
+
+
     </LinearLayout>
 
 
-    <Button
-        android:id="@+id/kakaoLoginBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="카카오톡 로그인"/>
 
 
 
