@@ -17,18 +17,6 @@
         android:theme="@style/Theme.EmergencyTreatment"
         tools:targetApi="31">
         <activity
-            android:name=".SettingFragment"
-            android:exported="false" />
-        <activity
-            android:name=".MapFragement"
-            android:exported="false" />
-        <activity
-            android:name=".BoardFragment"
-            android:exported="false" />
-        <activity
-            android:name=".SearchFragment"
-            android:exported="false" />
-        <activity
             android:name=".SplashActivity"
             android:exported="false" />
         <activity
@@ -61,6 +49,9 @@
                     android:scheme="kakaof1113c167de4e551538b6ce0f0225b51" />
             </intent-filter>
         </activity>
+            <meta-data
+                android:name="com.naver.maps.map.CLIENT_ID"
+                android:value="tpb0y8tli6" />
     </application>
 
 </manifest>
